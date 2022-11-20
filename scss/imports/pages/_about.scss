@@ -1,0 +1,199 @@
+.aboutpage {
+    // HERO
+
+    .info {
+        background: $blue-header;
+
+        &__wrap {
+            @include grid(2, 1);
+
+            gap: 0;
+            padding: 230px 0 166px 0;
+        }
+
+        &__img {
+            position: relative;
+            overflow: hidden;
+            height: 0;
+            padding-bottom: 129%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                @include mid(false);
+            }
+        }
+
+        &__textbox {
+            margin-left: 40px;
+
+            &-heading {
+                font-family: ol;
+                font-size: 72px;
+                color: $white-cl;
+                line-height: 107px;
+            }
+
+            &-desc {
+                margin: 10px 0 50px 0;
+            }
+
+            &-bot {
+                .--title {
+                    margin-bottom: 30px;
+                }
+
+                display: flex;
+                justify-content: space-between;
+
+                .iaward {
+                    .list {
+                        li {
+                            &:not(:last-child) {
+                                margin-bottom: 5px;
+                            }
+
+                            a {
+                                font-family: mr;
+                                font-size: 16px;
+                                color: $white-cl;
+                                line-height: 30px;
+                                padding: 2px 0;
+                                text-decoration: none;
+                                border-bottom-color: $white-cl;
+                                border-bottom-width: 1px;
+                                border-bottom-style: solid;
+                            }
+                        }
+                    }
+                }
+
+                .icontact {
+                    .detail {
+                        font-family: mr;
+                        font-size: 16px;
+                        color: $white-cl;
+
+                        p {
+                            margin-bottom: 8px;
+                        }
+                    }
+
+                    .--iconlist {
+                        margin-top: 40px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include md {
+        .info {
+            &__textbox {
+                &-bot {
+                    .icontact {
+                        margin-left: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @include sm {
+        .info {
+            &__wrap {
+                display: inherit;
+                padding: 100px 0;
+            }
+
+            &__img {
+                padding-bottom: 100%;
+            }
+
+            &__textbox {
+                margin-top: 30px;
+                margin-left: 0;
+            }
+        }
+    }
+
+
+    @include xs {
+        .info {
+            &__textbox {
+                &-heading {
+                    font-size: 60px;
+                    line-height: 65px;
+                }
+            }
+        }
+    }
+
+
+    .simulator {
+        background: $blue-header;
+
+        &__img {
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .value {
+        background: $blue-header;
+
+        &__list {
+            padding: 176px 43px 250px 43px;
+
+            @include grid(3, 1);
+
+            &-item {
+                display: flex;
+
+                .valueimg {
+                    width: 50%;
+                }
+
+                .textbox {
+                    color: $white-cl;
+                    margin-left: 30px;
+
+                    .heading {
+                        font-family: ol;
+                        font-size: 24px;
+                        margin-bottom: 15px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include sm {
+        .value {
+            &__list {
+                grid-template-columns: repeat(2, 1fr);
+
+                &-item {
+                    .valueimg {
+                        width: inherit;
+                    }
+                }
+            }
+        }
+    }
+
+
+    @include xs {
+        .value {
+            &__list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}

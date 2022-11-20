@@ -1,0 +1,33 @@
+.eventpage {
+    .menu {
+        background: $blue-header;
+
+        &__list {
+            @include grid(3, 3);
+
+            margin-top: 0;
+            padding-top: 120px;
+        }
+
+        &__btn {
+            padding: 20px 0 108px 0;
+        }
+    }
+
+    @include sm {
+        .menu {
+            &__list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+
+
+    @include xs {
+        .menu {
+            &__list {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}

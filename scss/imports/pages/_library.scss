@@ -1,0 +1,120 @@
+.librarypage {
+    .gallery {
+        background: $blue-header;
+
+        .container {}
+
+        &__tabs {
+            padding-top: 100px;
+            margin-bottom: 45px;
+
+            @include mid(true);
+
+            &-item {
+                position: relative;
+                cursor: pointer;
+                font-family: ol;
+                font-size: 14px;
+                line-height: 30px;
+                color: #909090;
+                padding: 10px 12px;
+                border-bottom: solid 1px $yellow;
+
+                @include mid(true);
+
+                &::after {
+                    position: absolute;
+                    content: ' ';
+                    background: $yellow;
+                    width: 100%;
+                    height: 4px;
+                    bottom: -2px;
+                    opacity: 0;
+                    transform: scaleX(0);
+                    transform-origin: right center;
+
+                    @include transition(0.4s cubic-bezier(0.93, 0.62, 0.48, 0.91));
+                }
+
+                &.active {
+                    color: $white-cl;
+
+                    @include transition(0.4s);
+
+                    &::after {
+                        transform: scaleX(1);
+                        transform-origin: left center;
+
+                        @include transition(0.4s cubic-bezier(0.93, 0.62, 0.48, 0.91));
+
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        &__wrap {
+            height: 100%;
+        }
+
+        &__list {
+            display: none;
+
+            &-item {
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            &.active {
+                @include grid(3, 3);
+                @include transition(0.4s);
+            }
+        }
+
+        .tabsbot {
+            opacity: 0;
+        }
+
+        &__btn {
+            margin-top: 90px;
+            padding-bottom: 120px;
+        }
+    }
+
+    @include sm {
+        .gallery {
+            &__tabs {
+                padding-top: 80px;
+            }
+
+            &__list {
+                &.active {
+                    grid-template-columns: repeat(2, 1fr);
+                    grid-template-rows: auto;
+                }
+            }
+
+            .tabsbot {
+                opacity: 1;
+            }
+        }
+    }
+
+
+    @include xs {
+        .gallery {
+            &__tabs {
+                padding-top: 70px;
+            }
+
+            &__list {
+                &.active {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+            }
+        }
+    }
+}

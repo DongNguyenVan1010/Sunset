@@ -1,0 +1,724 @@
+// css img, button, heading, title, input, elements, components...
+img {
+    max-width: 100%;
+    height: auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+
+    &.--center {
+        margin: 0 auto;
+        display: block;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+// colors (tuỳ chỉnh)
+.--white-cl {
+    color: $white-cl;
+}
+
+.--black-cl {
+    color: $black-cl;
+}
+
+.--blue-cl {
+    color: $blue-cl;
+}
+
+// css article (nội dung chi tiết bài viết)
+article {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        // font-family: ib; // font bold
+        display: block;
+    }
+
+    h1 {
+        font-size: var(--h1-fs);
+        line-height: var(--h1-lh);
+        margin: 0 0 0.67rem 0;
+    }
+
+    h2 {
+        font-size: var(--h2-fs);
+        line-height: var(--h2-lh);
+        margin: 0 0 0.75rem 0;
+    }
+
+    h3 {
+        font-size: var(--h3-fs);
+        line-height: var(--h3-lh);
+        margin: 0 0 0.83rem 0;
+    }
+
+    h4 {
+        font-size: var(--h4-fs);
+        line-height: var(--h4-lh);
+        margin: 0 0 1.12rem 0;
+    }
+
+    h5 {
+        font-size: var(--h5-fs);
+        line-height: var(--h5-lh);
+        margin: 0 0 1.5rem 0;
+    }
+
+    h6 {
+        font-size: 0.67rem;
+        margin: 0 0 1.67rem 0;
+    }
+
+    p {
+        margin: 0 0 1.12rem 0;
+    }
+
+    strong {
+        // font-family: ib; // font bold
+   
+    }
+
+    ol,
+    ul {
+        list-style: initial;
+        padding-left: 18px;
+    }
+
+    img {
+        display: inline-block;
+        height: auto;
+        overflow: hidden;
+        border-radius: 10px;
+        margin: 25px auto;
+    }
+
+    .video {
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%;
+        position: relative;
+        margin: 25px auto;
+
+        iframe,
+        video {
+            position: absolute;
+
+            @include size(100%);
+
+            top: 0;
+            left: 0;
+        }
+    }
+
+    @include xs {
+        img {
+            margin: 20px auto;
+        }
+    }
+}
+
+.heading {
+    &.--h1 {
+        font-size: var(--h1-fs);
+        line-height: var(--h1-lh);
+    }
+
+    &.--h2 {
+        font-size: var(--h2-fs);
+        line-height: var(--h2-lh);
+    }
+}
+
+// MODIFIER
+
+// HEADING
+
+.--heading {
+    .yltitle {
+        color: $yellow;
+        font-family: ci;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .whtitle {
+        color: $white-cl;
+        font-family: ol;
+        font-size: 40px;
+    }
+}
+
+@include md {
+    .--heading {
+        .whtitle {
+            font-size: 32px;
+        }
+    }
+}
+
+
+// DESC
+
+.--desc {
+    font-family: mr;
+    font-size: 16px;
+    color: $white-cl;
+    line-height: 30px;
+}
+
+@include xs {
+    .--desc {
+        line-height: inherit;
+    }
+}
+
+
+.--title {
+    font-family: ol;
+    font-size: 34px;
+    color: $white-cl;
+}
+
+.--center {
+    text-align: center;
+}
+
+// BUTTON
+
+.--btn {
+    color: $white-cl;
+    background: $blue-btn;
+    font-size: 14px;
+    font-family: or;
+    padding: 18px 55px;
+    border: solid $yellow 1px;
+    cursor: pointer;
+
+    @include transition(0.4s);
+
+    &:hover {
+        @include transition(0.4s);
+
+        background: $yellow;
+    }
+}
+
+@include xs {
+    .--btn {
+        padding: 15px 40px;
+    }
+}
+
+
+// normal losange
+
+.--losange {
+    position: relative;
+
+    .icon {
+        margin: 24px 0 16px 0;
+    }
+
+    &::after {
+        position: absolute;
+        content: ' ';
+        background: $yellow;
+        height: 1px;
+        width: 142px;
+        top: 102px;
+        left: 12px;
+    }
+}
+
+// losange before + after
+.--losange2 {
+    position: relative;
+
+    .icon {
+        margin-top: 28px;
+    }
+
+    &::before, &::after {
+        position: absolute;
+        content: ' ';
+        width: 82px;
+        height: 1px;
+        background: $yellow;
+        top: 106px;
+    }
+
+    &::after {
+        left: 454px;
+    }
+}
+
+@include md {
+    .--losange2 {
+        &::after {
+            left: 365px;
+        }
+    }
+}
+
+
+@include sm {
+    .--losange2 {
+        &::after {
+            left: 245px;
+        }
+    }
+}
+
+
+@include xs {
+    .--losange2 {
+        &::after {
+            left: 175px;
+        }
+    }
+}
+
+
+// Arrow
+
+.--next {
+    img {
+        transform: rotate(180deg);
+    }
+}
+
+// BOT
+
+.--bot {
+    .name {
+        font-family: ol;
+        font-size: 24px;
+        color: $white-cl;
+    }
+
+    .position {
+        font-family: mr;
+        font-size: 14px;
+        color: $yellow;
+        margin-top: 15px;
+    }
+}
+
+// LIST
+
+.--list {
+    margin-top: 56px;
+    padding-bottom: 60px;
+
+    @include grid(3, 1);
+
+    .item {
+        background: $blue-footer;
+
+        .img {
+            position: relative;
+            overflow: hidden;
+            height: 0;
+            padding-bottom: 91%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+
+                @include mid(false);
+                @include transition(0.4s);
+
+                // @include transform(scale(1));
+                transform: translate(-50%, -50%) scale(1);
+
+                &:hover {
+                    @include transition(0.4s);
+                    @include filter(55%, 70%);
+
+                    transform: translate(-50%, -50%) scale(1.1);
+                }
+            }
+        }
+
+        .--heading {
+            padding: 27px 32px;
+            position: relative;
+
+            .whtitle {
+                font-size: 24px;
+                line-height: 40px;
+                padding-bottom: 25px;
+                cursor: pointer;
+            }
+
+            .yltitle {
+                img {
+                    width: 5px;
+                    margin-bottom: 4px;
+                }
+            }
+
+            &::after {
+                position: absolute;
+                content: '';
+                background: $yellow;
+                width: 134px;
+                height: 1px;
+                left: 0;
+
+                @include transition(0.4s);
+            }
+        }
+
+        &:hover {
+            .--heading {
+                &::after {
+                    width: 100%;
+
+                    @include transition(0.4s);
+                }
+            }
+        }
+    }
+}
+
+@include sm {
+    .--list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+@include xs {
+    .--list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+// RESERVE FORM
+
+.--form {
+    display: flex;
+
+    .formimg {
+        width: 240px;
+        background: $blue-weird;
+
+        // margin-right: 65px;
+
+        .fimg {
+            width: 72.2%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+
+    .form {
+        background: $blue-footer;
+        padding: 32px;
+
+        .heading {
+            font-family: mr;
+            font-size: 24px;
+            color: $yellow;
+            padding: 34px 45px 0 45px;
+            white-space: nowrap;
+        }
+
+        form {
+            margin-top: 32px;
+
+            .forminput {
+                border-bottom-style: solid;
+                border-bottom-width: 1px;
+                border-bottom-color: $white-cl;
+                padding-bottom: 8px;
+
+                &:not(:last-child) {
+                    margin-bottom: 16px;
+                }
+
+                ::placeholder {
+                    font-family: mr;
+                    font-size: 14px;
+                    line-height: 30px;
+                    color: $white-cl;
+                }
+
+                input, select {
+                    width: 100%;
+                    background: $black-cl;
+                    border: none;
+                    outline: none;
+                    font-family: mr;
+                    font-size: 14px;
+                    line-height: 30px;
+                    color: $white-cl;
+
+                    // color-scheme: $white-cl;
+               
+                }
+
+                ::-webkit-calendar-picker-indicator {
+                    filter: invert(1);
+                }
+            }
+        }
+
+        .formbtn {
+            margin-top: 36px;
+
+            .--btn {
+                display: block;
+                text-align: center;
+            }
+        }
+    }
+}
+
+@include sm {
+    .--form {
+        .form {
+            width: 63.33%;
+        }
+    }
+}
+
+
+// ICON
+.--iconlist {
+    .iconitem:not(:last-child) {
+        fill: red;
+        margin-right: 20px;
+    }
+}
+
+@include md {
+    .--iconlist {
+        .iconitem:not(:last-child) {
+            margin-right: 10px;
+            height: 100%;
+        }
+    }
+}
+
+
+// HERO SECTION
+
+.--hero {
+    .hero {
+        padding-top: $height-header;
+
+        &__wrap {
+            position: relative;
+        }
+
+        &__img {
+            width: 100%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+            }
+        }
+
+        &__left {
+            position: absolute;
+            z-index: 3;
+            font-family: ol;
+            font-size: 40px;
+            color: $white-cl;
+            top: 245px;
+        }
+
+        &__bot {
+            position: absolute;
+            z-index: 3;
+            font-family: ol;
+            font-size: 16px;
+            color: $white-cl;
+            top: 340px;
+
+            span {
+                margin: 0 5px;
+            }
+        }
+
+        &__right {
+            position: absolute;
+            z-index: 3;
+            font-family: ol;
+            font-size: 16px;
+            right: 0;
+            top: 243px;
+            display: flex;
+
+            &-back {
+                color: $yellow;
+
+                img {
+                    width: 5px;
+                    margin: 0 8px 4px 8px;
+                }
+            }
+
+            &-othername {
+                color: $white-cl;
+            }
+        }
+    }
+}
+
+@include sm {
+    .--hero {
+        .hero {
+            &__left {
+                top: 170px;
+            }
+
+            &__right {
+                top: 182px;
+            }
+        }
+    }
+}
+
+
+@include xs {
+    .--hero {
+        .hero {
+            &__left {
+                top: 82px;
+                font-size: 30px;
+            }
+
+            &__right {
+                top: 86px;
+            }
+        }
+    }
+}
+
+
+// PROGRESS BAR
+.progressbar {
+    width: 0;
+    height: 6px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: $yellow;
+    z-index: 400;
+}
+
+// BACK TO TOP
+.backbtn {
+    position: fixed;
+    right: 25px;
+    bottom: 22px;
+    z-index: 50;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+// OVERLAY
+.overlay {
+    @include mid(false);
+
+    background: rgba(0, 0, 0, 0.7); /* Black see-through */
+    width: 90%;
+    height: 90%;
+
+    @include transition(0.4s);
+
+    opacity: 0;
+    visibility: hidden;
+    padding: 20px;
+    z-index: 5;
+
+    span {
+        @include mid(false);
+
+        line-height: 35px;
+        color: $white-cl;
+        font-family: ol;
+        font-size: 30px;
+        text-align: center;
+    }
+}
+
+// MENU LIST
+.menu__list {
+    @include grid(2, 5);
+
+    position: relative;
+
+    &-item {
+        .food {
+            display: flex;
+            justify-content: space-between;
+
+            .namefood {
+                font-size: 24px;
+                font-family: ol;
+                color: $white-cl;
+                line-height: 40px;
+            }
+
+            .ylline {
+                height: 1px;
+                flex-grow: 1;
+                background: $yellow;
+                margin: 18px 8px;
+            }
+
+            .price {
+                color: $yellow;
+                font-size: 24px;
+                font-family: ol;
+                line-height: 40px;
+                position: relative;
+
+                // &::before {
+                //     position: absolute;
+                //     top: 30%;
+                //     right: 108px;
+                //     content: ' ';
+                //     height: 1px;
+                //     width: 140px;
+                //     background: $yellow;
+                // }
+           
+            }
+        }
+    }
+
+    .ingredient {
+        font-size: 14px;
+    }
+}

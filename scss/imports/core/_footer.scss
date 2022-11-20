@@ -1,0 +1,118 @@
+// css footer
+.footer {
+    background: $blue-footer;
+
+    &__top {
+        @include midhead;
+
+        position: relative;
+        padding: 102px 0 95px 0;
+
+        &-contact {
+            color: $white-cl;
+            font-family: ol;
+            font-size: 24px;
+
+            .conheading {
+                margin-bottom: 15px;
+            }
+
+            .conitem {
+                display: flex;
+                align-items: center;
+
+                img {
+                    margin-right: 14px;
+                }
+
+                p {
+                    font-size: 16px;
+                    font-family: mr;
+                }
+            }
+        }
+
+        &-mid {
+            text-align: center;
+
+            @include mid(false);
+
+            width: 33.33%;
+
+            .logo {}
+
+            .desc {
+                margin-top: 10px;
+                margin-bottom: 22px;
+                font-size: 24px;
+                font-family: ci;
+                color: $white-cl;
+                line-height: 40px;
+                text-decoration: none;
+            }
+        }
+
+        &-time {
+            color: $white-cl;
+            font-family: ol;
+            font-size: 24px;
+            text-align: right;
+
+            .timeheading {
+                margin-bottom: 15px;
+            }
+
+            .timeitem {
+                font-size: 16px;
+                font-family: mr;
+                margin-bottom: 18px;
+
+                span {
+                    color: $yellow;
+                }
+            }
+        }
+    }
+
+    &__bot {
+        background: $blue-header;
+
+        &-copyright {
+            font-family: mr;
+            font-size: 16px;
+            text-decoration: none;
+            color: $white-cl;
+
+            @include mid(true);
+
+            padding: 28px 0;
+        }
+    }
+}
+
+@include sm {
+    .footer {
+        &__top {
+            padding: 130px 0;
+
+            &-contact {
+                display: none;
+            }
+
+            &-time {
+                display: none;
+            }
+
+            &-mid {
+                width: 100%;
+            }
+        }
+
+        &__bot {
+            &-copyright {
+                padding: 18px 0;
+                font-size: 14px;
+            }
+        }
+    }
+}

@@ -1,0 +1,256 @@
+// css header
+.header {
+    height: $height-header;
+    width: 100%;
+    background: $blue-header;
+    z-index: 30;
+    top: 0;
+    left: 0;
+    position: fixed;
+
+    .container-fluid {
+        @include midhead;
+
+        height: 100%;
+    }
+
+    &__menu {
+        @include mid(true);
+        @include mid(false);
+
+        height: 100%;
+
+        li {
+            a {
+                font-family: or;
+                font-size: 14px;
+                text-decoration: none;
+                color: $white-cl;
+                padding: 40px 12px;
+                line-height: 20px;
+
+                @include transition(0.4s);
+
+                &:hover {
+                    color: $yellow;
+
+                    @include transition(0.4s);
+                }
+
+                &.active {
+                    color: $yellow;
+
+                    @include transition(0.4s);
+                }
+            }
+        }
+    }
+
+    .btnmenu {
+        width: 28px;
+        height: 20px;
+        position: relative;
+        cursor: pointer;
+        margin-left: 10px;
+        display: none;
+
+        &::before,
+        &::after,
+        span {
+            content: ' ';
+            width: 100%;
+            height: 2px;
+            background: $yellow;
+            display: block;
+            position: absolute;
+
+            @include transition(0.4s);
+        }
+
+        &::before {
+            transform: rotate(0deg) translate(0px, 0px);
+        }
+
+        &::after {
+            bottom: 0;
+            transform: rotate(0deg) translate(0px, 0px);
+        }
+
+        span {
+            top: 50%;
+            transform: translateY(-50%);
+
+            @include transition(0.4s);
+        }
+
+        &.active {
+            &::before {
+                transform: rotate(45deg) translate(9px, 4px);
+
+                @include transition(0.4s);
+            }
+
+            &::after {
+                transform: rotate(-45deg) translate(9px, -4px);
+
+                @include transition(0.4s);
+            }
+
+            span {
+                opacity: 0;
+
+                @include transition(0.4s);
+            }
+        }
+    }
+
+    &__right {
+        height: 100%;
+
+        @include mid(true);
+
+        &-lang {
+            .lang-cur {
+                span {
+                    font-family: or;
+                    font-size: 14px;
+                    text-decoration: none;
+                    color: $white-cl;
+                    padding: 12px 40px;
+                    line-height: 20px;
+                    cursor: pointer;
+
+                    @include transition(0.4s);
+
+                    &:hover {
+                        color: $yellow;
+
+                        @include transition(0.4s);
+                    }
+                }
+            }
+
+            &.active {
+                .lang-opt {
+                    opacity: 1;
+                    pointer-events: auto;
+                }
+            }
+
+            .lang-opt {
+                position: absolute;
+                top: $height-header;
+                right: 180px;
+                background: #353535;
+                z-index: 5;
+                opacity: 0;
+                pointer-events: none;
+
+                @include transition(0.4s);
+
+                li {
+                    a {
+                        font-family: or;
+                        font-size: 14px;
+                        text-decoration: none;
+                        color: $white-cl;
+                        padding: 7px 32px;
+                        display: block;
+
+                        @include transition(0.4s);
+
+                        &:hover {
+                            color: $yellow;
+
+                            @include transition(0.4s);
+                        }
+                    }
+                }
+            }
+        }
+
+        &-booking {
+            span {
+                font-family: or;
+                font-size: 14px;
+                text-decoration: none;
+                color: $white-cl;
+                line-height: 20px;
+                padding: 12px 32px;
+                background: $yellow;
+                cursor: pointer;
+
+                @include transition(0.4s);
+
+                &:hover {
+                    @include transition(0.4s);
+
+                    background: $white-cl;
+                    color: $blue-footer;
+                }
+            }
+        }
+    }
+}
+
+@include md {
+    .header {
+        &__menu {
+            display: none;
+        }
+
+        &__right {
+            &-lang {
+                .lang-cur {
+                    span {
+                        padding: 10px 22px;
+                    }
+                }
+
+                .lang-opt {
+                    right: 86px;
+                }
+            }
+
+            &-booking {
+                display: none;
+            }
+        }
+
+        .btnmenu {
+            display: block;
+        }
+    }
+}
+
+
+@include sm {
+    .header {
+        &__right {
+            &-lang {
+                .lang-opt {
+                    right: 45px;
+
+                    li {
+                        a {
+                            padding: 7px 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@include xs {
+    .header {
+        &__right {
+            &-booking {
+                span {
+                    padding: 10px 22px;
+                }
+            }
+        }
+    }
+}
